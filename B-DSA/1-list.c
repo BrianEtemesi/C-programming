@@ -1,1 +1,56 @@
-#include 
+#include <stdio.h>
+#include <stdlib.h>
+#include "lists.h"
+#include <string.h>
+
+/**
+ *
+ */
+
+void printcars(my_cars *h)
+{
+	char *str;
+	
+	while (h != NULL)
+	{
+		str = strdup(h->model);
+		printf("%d %s\n", h->year, str);
+
+		h = h->next;
+	}
+}
+/**
+ * main - initialize struct
+ * Return: 0
+ */
+
+int main(void)
+{
+	/* initialize nodes */
+	my_cars *head;
+	my_cars *car1 = NULL;
+	my_cars *car2 = NULL;
+	my_cars *car3 = NULL;
+
+	/* allocate memory */
+	car1 = malloc(sizeof(my_cars));
+	car2 = malloc(sizeof(my_cars));
+	car3 = malloc(sizeof(my_cars));
+
+	/* assign data values */
+	car1->model = "VW golf";
+	car1->year = 2012;
+	car1->next = car2;
+	car2->model = "Toyota Crown";
+	car2->year = 2014;
+	car2->next = car3;
+	car3->model = "Nissan Fuga";
+	car3->year = 2015;
+	car3->next = NULL;
+
+	/* save address of the first node to head */
+	head = car1;
+
+	printcars(head);
+	return (0);
+}

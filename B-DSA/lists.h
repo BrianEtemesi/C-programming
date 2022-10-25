@@ -9,7 +9,7 @@
 
 typedef struct mycars
 {
-	char *make;
+	char *model;
 	int year;
 	struct mycars *next;
 } my_cars;
