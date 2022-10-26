@@ -4,7 +4,10 @@
 #include <string.h>
 
 /**
- *
+ * add_node - adds element at beginning of a linked list
+ * @h: list head- pointer pointing to list head
+ * @nmodel: car model
+ * @year: year of manufucture
  */
 
 my_cars *add_node(my_cars **h, char *nmodel, int year)
@@ -19,6 +22,30 @@ my_cars *add_node(my_cars **h, char *nmodel, int year)
 
 	return (*h);
 }
+
+/**
+ *
+ *
+ */
+
+my_cars *add_node_end(my_cars *h, char *nmodel, int year)
+{
+	my_cars *newcar;
+	newcar = malloc(sizeof(my_cars));
+	newcar->model = nmodel;
+	newcar->year = year;
+	newcar->next = NULL;
+
+	while (*h != NULL)
+	{
+		*h = h->next; 
+	}
+
+	h->next = newcar;
+
+	return (*h);
+}
+
 /**
  * printcars - prints out elements in list my_cars
  * @h: pointer to header
