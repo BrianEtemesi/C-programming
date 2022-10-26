@@ -73,7 +73,7 @@ int main(void)
 	printcars(head);
 
 	/* add node using add_node function */
-	add_node()
+	add_node();
 
 	/* alternatively traverse and print
 	my_cars *temp = head;
