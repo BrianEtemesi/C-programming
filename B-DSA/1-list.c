@@ -72,11 +72,12 @@ int main(void)
 	head = car1;
 
 	/* print elements from printcars func */
-	printcars(head);
+	//printcars(head);
 
 	/* add node using add_node function */
 	add_node(&head, "Toyota Prado", 2019);
-	
+	add_node(&head, "BMW 532i", 2016);
+
 	printcars(head);
 
 	/* alternatively traverse and print
