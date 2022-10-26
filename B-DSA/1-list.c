@@ -28,20 +28,24 @@ my_cars *add_node(my_cars **h, char *nmodel, int year)
  *
  */
 
-my_cars *add_node_end(my_cars *h, char *nmodel, int year)
+my_cars *add_node_end(my_cars **h, char *nmodel, int year)
 {
 	my_cars *newcar;
+	my_cars *temp;
+
 	newcar = malloc(sizeof(my_cars));
 	newcar->model = nmodel;
 	newcar->year = year;
 	newcar->next = NULL;
 
-	while (*h != NULL)
+	temp = *h;
+
+	while (temp->next != NULL)
 	{
-		*h = h->next; 
+		temp = temp->next; 
 	}
 
-	h->next = newcar;
+	temp->next = newcar;
 
 	return (*h);
 }
@@ -104,6 +108,9 @@ int main(void)
 	/* add node using add_node function */
 	add_node(&head, "Toyota Prado", 2019);
 	add_node(&head, "BMW 532i", 2016);
+
+	/* add node at the end of list */
+	add_node_end(&head, "Subaru Outback", 2020);
 
 	printcars(head);
 
