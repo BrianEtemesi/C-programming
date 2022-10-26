@@ -40,17 +40,31 @@ int main(void)
 	/* assign data values */
 	car1->model = "VW golf";
 	car1->year = 2012;
-	car1->next = car2;
 	car2->model = "Toyota Crown";
 	car2->year = 2014;
-	car2->next = car3;
 	car3->model = "Nissan Fuga";
 	car3->year = 2015;
+
+	/* link nodes */
+	car1->next = car2;
+	car2->next = car3;
 	car3->next = NULL;
 
 	/* save address of the first node to head */
 	head = car1;
 
+	/* print elements from printcars func */
 	printcars(head);
+
+	/* alternatively traverse and print */
+	my_cars *temp = head;
+
+	while (temp != NULL)
+	{
+		printf("[%d] %s-->", temp->year, temp->model);
+		temp = temp->next;
+	}
+	printf("\n");
+
 	return (0);
 }
