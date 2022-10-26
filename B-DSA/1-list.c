@@ -7,6 +7,21 @@
  *
  */
 
+void add_node(my_cars *h, char *nmodel, int year)
+{
+	my_cars newcar;
+
+	newcar = malloc(sizeof(my_cars));
+	newcar->model = nmodel;
+	newcar->year = year;
+	newcar->next = h;
+	h = newcar;
+}
+/**
+ * printcars - prints out elements in list my_cars
+ * @h: pointer to header
+ */
+
 void printcars(my_cars *h)
 {
 	char *str;
@@ -19,6 +34,7 @@ void printcars(my_cars *h)
 		h = h->next;
 	}
 }
+
 /**
  * main - initialize struct
  * Return: 0
@@ -56,15 +72,19 @@ int main(void)
 	/* print elements from printcars func */
 	printcars(head);
 
-	/* alternatively traverse and print */
+	/* add node using add_node function */
+	add_node()
+
+	/* alternatively traverse and print
 	my_cars *temp = head;
 
 	while (temp != NULL)
 	{
-		printf("[%d] %s-->", temp->year, temp->model);
+		printf("%d %s-->", temp->year, temp->model);
 		temp = temp->next;
 	}
-	printf("\n");
+
+	printf("\n"); */
 
 	return (0);
 }
