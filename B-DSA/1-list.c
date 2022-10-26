@@ -7,18 +7,17 @@
  *
  */
 
-my_cars *add_node(my_cars *h, char *nmodel, int year)
+my_cars *add_node(my_cars **h, char *nmodel, int year)
 {
 	my_cars *newcar;
-	my_cars *temp;
 
 	newcar = malloc(sizeof(my_cars));
 	newcar->model = nmodel;
 	newcar->year = year;
-	newcar->next = temp;
-	temp = newcar;
+	newcar->next = *h;
+	*h = newcar;
 
-	return (temp);
+	return (*h);
 }
 /**
  * printcars - prints out elements in list my_cars
@@ -46,7 +45,6 @@ void printcars(my_cars *h)
 int main(void)
 {
 	/* initialize nodes */
-	my_cars *temp;
 	my_cars *head;
 	my_cars *car1 = NULL;
 	my_cars *car2 = NULL;
@@ -77,9 +75,9 @@ int main(void)
 	printcars(head);
 
 	/* add node using add_node function */
-	temp = add_node(head, "Toyota Prado", 2019);
+	add_node(&head, "Toyota Prado", 2019);
 	
-	printcars(temp);
+	printcars(head);
 
 	/* alternatively traverse and print
 	my_cars *temp = head;

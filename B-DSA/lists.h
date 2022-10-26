@@ -14,6 +14,6 @@ typedef struct mycars
 	struct mycars *next;
 } my_cars;
 
-my_cars *add_node(my_cars *h, char *nmodel, int year);
+my_cars *add_node(my_cars **h, char *nmodel, int year);
 
 #endif /* LIST_H */
