@@ -10,8 +10,9 @@
 int main(void)
 {
 	char *args[] = {"./2-max_pid", NULL};
+	char *envp[] = {"some", NULL};
 
-	execvp(args[0], args);
+	execve(args[0], args, envp);
 
 	/* all statements are ignored after calling execve */
 	/* the whole process is replaced by 2-max_pid */
