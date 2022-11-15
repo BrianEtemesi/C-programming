@@ -8,7 +8,7 @@
 
 int main(void)
 {
-	char string[] = "This new world, New world of tech";
+	char string[] = "This new world,New world of tech";
 	const char del[] = ",";
 	char *mytoken;
 
