@@ -22,7 +22,7 @@ int main(void)
 	}
 	else/* parent */
 	{
-		wait(NULL);
+		/* wait(NULL); */
 		printf("My child's id is %d\n", p);
 		printf("I am a parent having id %d\n", getpid());
 	}
