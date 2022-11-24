@@ -5,6 +5,7 @@
 
 
 void _loop(void);
+char *_readline(void);
 
 /**
  * _loop - read, parse and executed parsed commands
@@ -18,7 +19,7 @@ void _loop(void)
 	{
 		printf("$ ");
 		line = _readline();
-		printf("%s\n", line);
+		printf("%s", line);
 	} while (1);
 }
 
