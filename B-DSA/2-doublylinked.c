@@ -4,7 +4,7 @@
 struct node
 {
 	int data;
-	struct node *next:
+	struct node *next;
 	struct node *prev;	
 };
 
@@ -57,7 +57,7 @@ void print()
 		printf("%d ", temp->data);
 		temp = temp->next;
 	}
-	printf("\n")
+	printf("\n");
 }
 
 /**
@@ -89,6 +89,23 @@ void reversePrint()
  * main - entry point
  *
  * Return: 0
+ */
+
+int main()
+{
+	int i;
+
+	head = NULL; /* empty list */
+
+	for (i = 1; i < 5; i++)
+	{
+		insertAtHead(i);
+		print();
+		reversePrint();
+	}
+
+	return (0);
+}
 
 
 
