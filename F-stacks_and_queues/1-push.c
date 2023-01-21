@@ -59,6 +59,30 @@ void _pall(void)
 }
 
 /**
+ * _pop - removes an item from a stack
+ *
+ * Return: value of item removed
+ */
+
+int _pop(void)
+{
+	stack_t *temp = top;
+	int val;
+
+	if (top == NULL)
+	{
+		printf("stack is empty\n");
+		return (1);
+	}
+
+	val = top->n;
+	top = top->next;
+	free(temp);
+
+	return (val);
+}
+
+/**
  * main - entry point
  *
  * Return: 0 for success
@@ -66,9 +90,16 @@ void _pall(void)
 
 int main(void)
 {
+	int a;
+
 	_push(10);
 	_push(20);
 	_push(30);
+	_pall();
+
+	a = _pop();
+	printf("%d was revomed from the stack\n", a);
+
 	_pall();
 
 	return (0);
